@@ -1,0 +1,12 @@
+{
+    "vs_currency": "usd",
+    "products": [
+        "bitcoin",
+        "ethereum",
+        "polkastarter",
+        "chainlink",
+        "uniswap"
+    ],
+    "interval_time_secs": 120,
+    "gas_price_interval": 40
+}
