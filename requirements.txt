@@ -1,0 +1,8 @@
+requests~=2.25.1
+matplotlib~=3.4.1
+numpy~=1.20.2
+pycoingecko~=1.4.0
+bs4~=0.0.1
+beautifulsoup4~=4.9.3
+lxml~=4.6.1
+selenium~=3.141.0

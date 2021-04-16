@@ -62,13 +62,13 @@ class CGapi:
             coin_list = self.update_coingecko_coinlist()
         else:
             coin_list = self.retrieve_coinlist_from_file()
-
-        idx = next(i for i, item in enumerate(coin_list) if item["id"] == prod)
-
-        if idx == None:
+        try:
+            idx = next(i for i, item in enumerate(coin_list) if item["id"] == prod)
+        except:
             print("could not find the product with this name.")
             print("search the coilist.dat file to find the product code of your product")
             return False, None
+
         prod_dict = coin_list[idx]
         prod_dict_formated = {}
         return True, prod_dict

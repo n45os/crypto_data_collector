@@ -27,7 +27,9 @@ smth= tree.xpath('/html/body/div[1]/main/div[3]/div/div[1]/div/div/div[2]/div[2]
 
 class Eth_scrapper:
     def __init__(self):
-        self.driver = webdriver.Chrome('/Users/nassosbountioukos/Downloads/chromedriver')
+        from os import path, getcwd
+        cur = getcwd()
+        self.driver = webdriver.Chrome(cur+'/chromedriver')
 
 
     def gas_price(self):

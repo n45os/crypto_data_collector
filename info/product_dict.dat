@@ -5,7 +5,8 @@
         "ethereum",
         "polkastarter",
         "chainlink",
-        "uniswap"
+        "uniswap",
+        "atari"
     ],
     "interval_time_secs": 120,
     "gas_price_interval": 40
