@@ -175,14 +175,15 @@ def run(quick = False):
 
 
     while True:
-        try:
-            prodd = collect_if_available(prod_dict, schedule)
-            if prodd is not None:
-                collect_in_file(prodd, prod_dict)
-            time.sleep(1)
-        except:
-            yellow_led.on()
-            continue
+        for i in range(100):
+            try:
+                prodd = collect_if_available(prod_dict, schedule)
+                if prodd is not None:
+                    collect_in_file(prodd, prod_dict)
+                time.sleep(1)
+            except:
+                yellow_led.on()
+                continue
 
 
 run()
