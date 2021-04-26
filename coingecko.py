@@ -13,12 +13,12 @@ class CGapi:
         self.cg = CoinGeckoAPI()
 
     def product_now(self, ids, vs_currency):
-        for errors in range(0,100):
+        for errors in range(0, 100):
             try:
                 info_dict = {}
                 feed_dict = self.cg.get_price(ids=ids, vs_currencies=vs_currency, include_market_cap='true',
-                                         include_24hr_vol='true', include_24hr_change='true',
-                                         include_last_updated_at='true')
+                                              include_24hr_vol='true', include_24hr_change='true',
+                                              include_last_updated_at='true')
                 info_dict["id"] = ids
                 info_dict["vs_curr"] = vs_currency
                 info_dict["price"] = feed_dict[ids][vs_currency]
@@ -32,8 +32,6 @@ class CGapi:
                     time.sleep(30)
                 time.sleep(2)
                 continue
-
-
 
     def get_address_if_exists(self, prod, update=True):
         import requests
@@ -88,7 +86,6 @@ class CGapi:
         cur = getcwd()
         with open(cur + "/info/coinlist.dat", "r") as f:
             return json.load(f)
-
 
 
 c = CGapi()
