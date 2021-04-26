@@ -1,3 +1,5 @@
+import os
+
 import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -30,7 +32,10 @@ class Eth_scrapper:
         from os import path, getcwd
         cur = getcwd()
         print(cur)
-        self.driver = webdriver.Chrome(cur+'/chromedriver')
+        if os.uname().nodename == 'raspberrypi':
+            self.driver = webdriver.Chrome("/lib/chromium-browser" + '/chromedriver')
+        else:
+            self.driver = webdriver.Chrome(cur+'/chromedriver')
 
 
     def gas_price(self):
