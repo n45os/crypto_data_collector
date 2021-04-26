@@ -51,6 +51,16 @@ with open(cur + "/info/product_dict.dat", "w") as f:
     json.dump(prod_dict, f, indent=4)"""
 #data = {"data": {"price", "m_cap", "24h_vol"}}
 
+
+if os.uname().nodename == 'raspberrypi':
+    #yellow @ pin23, green @ pin17
+    from gpiozero import LED
+
+    green_led = LED(17)
+    green_led.off()
+    yellow_led = LED(23)
+    yellow_led.off()
+
 eth_scpr = Es()
 pd = pd()
 prod_dict = pd.prod_dict
@@ -165,9 +175,14 @@ def run(quick = False):
 
 
     while True:
-        prodd = collect_if_available(prod_dict, schedule)
-        if prodd is not None:
-            collect_in_file(prodd, prod_dict)
+        try:
+            prodd = collect_if_available(prod_dict, schedule)
+            if prodd is not None:
+                collect_in_file(prodd, prod_dict)
+            time.sleep(1)
+        except:
+            yellow_led.on()
+            continue
 
 
 run()
